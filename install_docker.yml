@@ -1,0 +1,22 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: install docker
+    yum:
+      name: docker-ce
+    when: ansible_distribution == "RedHat"
+
+  - name: copy docker compose files
+    ansible.builtin.copy:
+      src: /home/mszpot_fp/docker_sample_app/awesome-compose/
+      dest: /home/ec2-user/docker_sample/
+      owner: root
+      group: root
+      mode: '0644'
+
+  - name: deploy docker compose stack
+    community.docker.docker_compose:
+      project_src: /home/ec2-user/docker_sample/sparkjava
