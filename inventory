@@ -1,1 +1,1 @@
-ec2-x-xxx-xx-xxx.eu-west-1.compute.amazonaws.com ansible_user=ec2-user
+ec2-xx-xxx-xx-xxx.eu-west-1.compute.amazonaws.com ansible_user=ec2-user

@@ -11,12 +11,14 @@
 
   - name: copy docker compose files
     ansible.builtin.copy:
-      src: /home/mszpot_fp/docker_sample_app/awesome-compose/
-      dest: /home/ec2-user/docker_sample/
+      src: /your/path/to/source/
+      dest: /your/path/to/destination/
       owner: root
       group: root
       mode: '0644'
 
-  - name: deploy docker compose stack
-    community.docker.docker_compose:
-      project_src: /home/ec2-user/docker_sample/sparkjava
+  - name: run docker compose
+    become: True
+    shell:
+      cmd: "docker compose up -d"
+      chdir: /home/ec2-user/your/docker_compose_file_location

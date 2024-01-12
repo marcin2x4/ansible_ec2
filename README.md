@@ -1,3 +1,3 @@
 # ansible_ec2
 
-Some random text.
+Learning project to configure and run `docker compose` command on a RedHat EC2 hosted machine.
